@@ -5,12 +5,27 @@ After that check, loop through the keys returned by Object.keys for one of the o
 Inside our loop, compare both objects' values for that key. Use === to ensure that the types are the same!
 As soon as there is not a match, we can return false
 Our control flow will therefore only get to the end of the loop if all the keys matched. We can and should thus return true at the end (after the loop)
+
+Within our loop, we can use Array.isArray against both values to see if array comparisons need to be made.
+
+If both values are indeed arrays: pass them to eqArrays and ensure that it returns true.
+Otherwise (else): assume that they are primitives and continue to use === to compare the two values.
 */
 
 
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
+function eqArrays(arr1, arr2) {
+  let var1 = toString(arr1);
+  let var2 = toString(arr2);
+  
+  if (var1 === var2) {
+    return true;
+  } else {
+    return false;
+  }
+};
 const eqObjects = function(object1, object2) {
   //variable
   ifTrue = false
@@ -40,7 +55,7 @@ const eqObjects = function(object1, object2) {
     else if (object1[key] === object2[key]) {
       ifTrue = true
     }
-    // Otherwise you get back a big fat false!
+    // Otherwise you get false!
     else {
       return false
     }
@@ -55,7 +70,14 @@ const assertEqual = function(actual, expected) {
 };
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-eqObjects(ab, ba); // => true
+assertEqual(eqObjects(ab, ba), true); // => true
 
 const abc = { a: "1", b: "2", c: "3" };
-console.log(eqObjects(ab, abc)); // => false
+assertEqual(eqObjects(ab, abc), false); // => false
+
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+assertEqual(eqObjects(cd, dc), true); // => true
+
+const cd2 = { c: "1", d: ["2", 3, 4] };
+assertEqual(eqObjects(cd, cd2), false); // => false
