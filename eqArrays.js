@@ -5,12 +5,11 @@ const eqArrays = function(firstList, secondList) {
     return false;
   }
   for (i = 0; i < firstList.length; i++) {
-    if (firstList[i] === secondList[i]) {
-      return true;
-    } else {
+    if (firstList[i] !== secondList[i]) {
       return false;
     }
-  } 
+  }
+  return true;
 };
 
 
