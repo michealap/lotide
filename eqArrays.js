@@ -1,14 +1,17 @@
 /*Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match. */
-function eqArrays(arr1, arr2) {
-  let var1 = toString(arr1);
-  let var2 = toString(arr2);
-  
-  if (var1 === var2) {
-    return true;
-  } else {
+const eqArrays = function(firstList, secondList) {
+  console.log(firstList, secondList);
+  if (firstList.length !== secondList.length) {
     return false;
   }
-}
+  for (i = 0; i < firstList.length; i++) {
+    if (firstList[i] === secondList[i]) {
+      return true;
+    } else {
+      return false;
+    }
+  } 
+};
 
 
 const assertEqual = function(actual, expected) {
@@ -16,6 +19,3 @@ const assertEqual = function(actual, expected) {
     console.log(`${String.fromCodePoint(128512)} Assertion Passed: ${actual} === ${expected}`);
   } else console.log(`${String.fromCodePoint(128148)} Assertion Failed: ${actual} !== ${expected}`);
 };
-
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
