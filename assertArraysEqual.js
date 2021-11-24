@@ -5,7 +5,7 @@ const eqArrays = function(firstList, secondList) {
   if (firstList.length !== secondList.length) {
     return false;
   }
-  for (i = 0; i < firstList.length; i++) {
+  for (let i = 0; i < firstList.length; i++) {
     if (firstList[i] !== secondList[i]) {
       return false;
     }
