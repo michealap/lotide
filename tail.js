@@ -13,20 +13,19 @@ const tail = function(words) {
   }
   for (let i = 1; i < words.length; i++) {
     result.push(words[i]);
-  }
-    
+  }    
   //const [, ...result] = array; returns the last element of array
   console.log("this is the result:" + result);
   return result;
 };
+
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`${String.fromCodePoint(128512)} Assertion Passed: ${actual} === ${expected}`);
   } else console.log(`${String.fromCodePoint(128148)} Assertion Failed: ${actual} !== ${expected}`);
 };
 
-
-// Test Case 1: Check the returned array elements
+// Test Cases: Check the returned array elements
 const words = tail(["Hello", "Lighthouse", "Labs"]);
 assertEqual(words.length, 2); // ensure we get back two elements
 assertEqual(words[0], "Lighthouse"); // ensure first element is "Lighthouse"
