@@ -1,4 +1,6 @@
 /*Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match. */
+const assertEqual = require('./assertEqual');
+
 const eqArrays = function(firstList, secondList) {
   console.log(firstList, secondList);
   if (firstList.length !== secondList.length) {
@@ -12,9 +14,5 @@ const eqArrays = function(firstList, secondList) {
   return true;
 };
 
+module.exports = eqArrays;
 
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`${String.fromCodePoint(128512)} Assertion Passed: ${actual} === ${expected}`);
-  } else console.log(`${String.fromCodePoint(128148)} Assertion Failed: ${actual} !== ${expected}`);
-};
