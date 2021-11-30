@@ -4,7 +4,10 @@ const eqArrays = require('./eqArrays');
 // Implement middle which will take in an array and return the middle-most element(s) of the given array.
 const middle = function(array) {
   let value = [];
-  if (array.length <= 2)
+  if (array.length === 0){
+    return undefined;
+  }
+  if (array.length > 0 && array.length <= 2)
     return value;
   if (array.length > 2 && array.length % 2 === 0) {//execute for all even number length
     let theMiddle = (array.length - 2) / 2; //1st of the middle

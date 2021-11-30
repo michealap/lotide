@@ -7,8 +7,4 @@ const head = function(array) {
   : undefined
 };
 
-// const assertEqual = function() {
-  
-// };
-
 module.exports = head;
