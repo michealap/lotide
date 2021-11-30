@@ -11,26 +11,10 @@ Within our loop, we can use Array.isArray against both values to see if array co
 If both values are indeed arrays: pass them to eqArrays and ensure that it returns true.
 Otherwise (else): assume that they are primitives and continue to use === to compare the two values.
 */
-const eqArrays = function(firstList, secondList) {
-  if (firstList.length !== secondList.length) {
-    return false;
-  }
-  for (let i = 0; i < firstList.length; i++) {
-    if (firstList[i] !== secondList[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`${String.fromCodePoint(128512)} Assertion Passed: ${actual} === ${expected}`);
-  } else console.log(`${String.fromCodePoint(128148)} Assertion Failed: ${actual} !== ${expected}`);
-};
+const eqArrays = require('./eqArrays');
+const assertEqual = require('./assertEqual');
 
 const eqObjects = function(object1, object2) {
-  //variable
   let ifTrue = false;
   // check if the length of the two objects keys are the same, if they are not the same it defaults to false
   if (Object.keys(object1).length !== Object.keys(object2).length) {
@@ -61,17 +45,4 @@ const eqObjects = function(object1, object2) {
   return ifTrue;
 };
 
-//Test Cases
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true); // => true
-
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false); // => false
-
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
+module.exports = eqObjects;

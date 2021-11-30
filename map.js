@@ -9,25 +9,8 @@ in as its second argument and conveniently called callback.
 
 Since map is passing in the original item to it, our test code which calls map knows to pass in a callback function which accepts that one and only argument.
  */
-const eqArrays = function(firstList, secondList) {
-  console.log(firstList, secondList);
-  if (firstList.length !== secondList.length) {
-    return false;
-  }
-  for (let i = 0; i < firstList.length; i++) {
-    if (firstList[i] !== secondList[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const assertArraysEqual = function(actual, expected) {
-  const isEqual = eqArrays(actual,expected);
-  if (isEqual) {
-    console.log(`${String.fromCodePoint(128512)} Assertion Passed: ${actual} === ${expected}\n`);
-  } else console.log(`${String.fromCodePoint(128148)} Assertion Failed: ${actual} !== ${expected}\n`);
-};
+const eqArrays = require('./eqArrays');
+const assertArraysEqual = require('./assertArraysEqual');
 
 const map = function(array, callback) {
   const results = [];
@@ -40,10 +23,11 @@ const map = function(array, callback) {
   return results;
 };
 
+module.exports = map;
 //Test Cases
-const words = ["ground", "control", "to", "major", "tom"];
-const results1 = map(words, word => word[0]);
-//console.log(results1);
-assertArraysEqual(results1[1],'c'); //-->true
-assertArraysEqual(results1[0],'f');//fail check
-assertArraysEqual(results1[2],'t');//true
+// const words = ["ground", "control", "to", "major", "tom"];
+// const results1 = map(words, word => word[0]);
+// //console.log(results1);
+// assertArraysEqual(results1[1],'c'); //-->true
+// assertArraysEqual(results1[0],'f');//fail check
+// assertArraysEqual(results1[2],'t');//true

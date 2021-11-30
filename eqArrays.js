@@ -2,7 +2,7 @@
 const assertEqual = require('./assertEqual');
 
 const eqArrays = function(firstList, secondList) {
-  console.log(firstList, secondList);
+  //console.log(firstList, secondList);
   if (firstList.length !== secondList.length) {
     return false;
   }
@@ -15,4 +15,3 @@ const eqArrays = function(firstList, secondList) {
 };
 
 module.exports = eqArrays;
-

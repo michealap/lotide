@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@michealap/lotide",
   "version": "1.0.0",
-  "description": "accompanying dependencies to lotide project",
+  "description": "16 utility functions for strings, arrays, objects",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/michealap/lotide.git"
+    "url": "https://github.com/michealap/lotide.git"
   },
   "keywords": [
     "lotide"

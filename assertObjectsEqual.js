@@ -1,6 +1,5 @@
 /**Implement assertObjectsEqual which will take in two objects and console.log an appropriate message to the console. */
 
-// FUNCTION IMPLEMENTATION
 const assertObjectsEqual = function(actual, expected) {
   // Implement me!
   const inspect = require('util').inspect; // <= add this line
@@ -12,3 +11,5 @@ const assertObjectsEqual = function(actual, expected) {
     console.log(`🤨🤨🤨 Assertion Failed: ${object1}  !==  ${object2}`);
   }
 };
+
+module.exports = assertObjectsEqual;
